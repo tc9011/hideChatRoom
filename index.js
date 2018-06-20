@@ -31,6 +31,7 @@ function hideChartRoom() {
   checkElement(chartRoom);
 
   chartRoom.style.display = isNeedHide ? 'none' : 'block';
+  console.log(`chartRoom display: ${chartRoom.style.display}`);
 }
 
 function changeLiveBoxWidth() {
@@ -39,6 +40,7 @@ function changeLiveBoxWidth() {
   checkElement(liveBox);
 
   liveBox.style.width = isNeedHide ? '100%' : 'calc(100% - 300px)';
+  console.log(`liveBox width: ${liveBox.style.width}`);
 }
 
 addLoadEvent(hideChartRoom);
