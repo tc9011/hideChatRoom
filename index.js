@@ -25,23 +25,23 @@ function checkElement(ele) {
   }
 }
 
-function hideChartRoom() {
-  const chartRoom = document.getElementsByClassName('interaction')[0];
+function changeStyle(className, styleName) {
+  const element = document.getElementsByClassName(className)[0];
 
-  checkElement(chartRoom);
+  checkElement(element);
 
-  chartRoom.style.display = isNeedHide ? 'none' : 'block';
-  console.log(`chartRoom display: ${chartRoom.style.display}`);
+  if (styleName === 'display') {
+    element.style[styleName] = isNeedHide ? 'none' : 'block';
+  } else if (styleName === 'width') {
+    element.style[styleName] = isNeedHide ? '100%' : 'calc(100% - 300px)';
+  }
+
+  console.log(`${className} ${styleName}: ${element.style[styleName]}`);
 }
 
-function changeLiveBoxWidth() {
-  const liveBox = document.getElementsByClassName('video-playing')[0];
-
-  checkElement(liveBox);
-
-  liveBox.style.width = isNeedHide ? '100%' : 'calc(100% - 300px)';
-  console.log(`liveBox width: ${liveBox.style.width}`);
+function main() {
+  changeStyle('interaction', 'display');
+  changeStyle('video-playing', 'width');
 }
 
-addLoadEvent(hideChartRoom);
-addLoadEvent(changeLiveBoxWidth);
+addLoadEvent(main);
