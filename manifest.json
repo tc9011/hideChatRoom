@@ -11,7 +11,7 @@
   },
   "browser_action": {
     // browser_action表示程序图标会出现在地址栏右侧，若要出现在地址栏，则写成page_action
-    "default_title": "日报工具",
+    "default_title": "hideChatRoom",
     "default_icon": "./images/icons/icon-72x72.png",
     "default_popup": "popup.html"
   },
