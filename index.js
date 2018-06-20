@@ -25,23 +25,31 @@ function checkElement(ele) {
   }
 }
 
-function changeStyle(className, styleName) {
+function changeStyle(className, style) {
   const element = document.getElementsByClassName(className)[0];
 
   checkElement(element);
 
-  if (styleName === 'display') {
-    element.style[styleName] = isNeedHide ? 'none' : 'block';
-  } else if (styleName === 'width') {
-    element.style[styleName] = isNeedHide ? '100%' : 'calc(100% - 300px)';
-  }
+  element.style[style.styleName] = isNeedHide ? style.hide : style.show;
 
-  console.log(`${className} ${styleName}: ${element.style[styleName]}`);
+  console.log(`${className} ${style.styleName}: ${element.style[style.styleName]}`);
 }
 
 function main() {
-  changeStyle('interaction', 'display');
-  changeStyle('video-playing', 'width');
+  const interactionStyle = {
+    styleName: 'display',
+    hide: 'none',
+    show: 'block'
+  };
+
+  const videoStyle = {
+    styleName: 'width',
+    hide: '100%',
+    show: 'calc(100% - 300px)'
+  };
+
+  changeStyle('interaction', interactionStyle);
+  changeStyle('video-playing', videoStyle);
 }
 
 addLoadEvent(main);
