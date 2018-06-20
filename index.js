@@ -3,7 +3,7 @@
 * Create by tc9011 on 2018/6/20  20:42 
 * *******************************************************
 * */
-const isNeedHide = true;
+let isNeedHide = true;
 
 function addLoadEvent(func) {
   const oldonload = window.onload;
