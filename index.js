@@ -25,15 +25,21 @@ function addLoadEvent(func) {
 }
 
 /*
-* 检测元素是否存在
+* 获取指定className的元素
 *
-* @param { HTMLElement } ele - 需要检测的元素
+* @param { String } className - 元素className
+*
 * *******************************************************
 * */
-function checkElement(ele) {
-  if (!ele) {
-    console.log(`can't get class, element info: ${ele}`);
-    return;
+function getElement(className) {
+  const elements = document.getElementsByClassName(className);
+  if (elements) {
+    return elements[0];
+  } else {
+    clearTimeout(tId);
+    tId = setTimeout(() => {
+      main();
+    }, 1000)
   }
 }
 
@@ -47,9 +53,7 @@ function checkElement(ele) {
 * *******************************************************
 * */
 function changeStyle(className, style) {
-  const element = document.getElementsByClassName(className)[0];
-
-  checkElement(element);
+  const element = getElement(className);
 
   element.style[style.styleName] = isNeedHide ? style.hide : style.show;
 
